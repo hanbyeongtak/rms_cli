@@ -1,0 +1,63 @@
+#  1. 서버 상태: curl http://127.0.0.1:8000/health
+#   2. 키워드 목록: curl http://127.0.0.1:8000/keywords
+  #curl http://127.0.0.1:8000/system/sync/10
+#   3. 데이터 동기화: curl -X POST http://127.0.0.1:8000/system/sync
+#curl -X POST http://127.0.0.1:8000/system/active-map/1  활성맵 변경 
+# curl -X POST http://127.0.0.1:8000/system/sync/1 싱크 이제 이렇게 
+#curl -X POST http://127.0.0.1:8000/system/active-map/1 맵이걸로 활성화 하겠다
+#curl -X POST http://127.0.0.1:8000/system/active-device/1
+#   4. 단일 명령(Fast): curl -X POST http://127.0.0.1:8000/command -H "Content-Type: application/json" -d '{"text": "앉아"}'
+#   5. 복합 명령(Smart): curl -X POST http://127.0.0.1:8000/command -H "Content-Type: application/json" -d '{"text": "일어나서 인사하고 춤춰"}'
+#   6. 미션 레시피: curl -X POST http://127.0.0.1:8000/mission/generate/1
+
+
+version: 1
+disable_existing_loggers: False
+formatters:
+  standard:
+    format: "%(levelname)s:     %(message)s"
+  uvicorn_formatter:
+    format: "%(levelname)s: %(message)s"
+
+filters:
+  ej_debug_filter:
+    (): "src.utils.custom_logger.EJDebugFilter"
+
+handlers:
+  console_filtered: # This handler will use the filter for general app logs
+    class: logging.StreamHandler
+    formatter: standard
+    filters: [ej_debug_filter]
+    level: DEBUG # Capture all levels, filter will decide what to show
+  console_unfiltered: # This handler will NOT use the filter, specifically for uvicorn's general info
+    class: logging.StreamHandler
+    formatter: uvicorn_formatter # Using uvicorn's formatter for consistency with its messages
+    level: INFO # Only show INFO and above for uvicorn's general messages
+
+  uvicorn_access: # Still filtered based on user's original request for specific info
+    class: logging.StreamHandler
+    formatter: uvicorn_formatter
+    filters: [ej_debug_filter]
+    level: INFO
+  uvicorn_error: # Always show errors
+    class: logging.StreamHandler
+    formatter: uvicorn_formatter
+    level: ERROR
+
+loggers:
+  root:
+    handlers: [console_filtered] # Root logger uses the filtered console
+    level: DEBUG
+    propagate: False
+  uvicorn:
+    handlers: [console_unfiltered] # Uvicorn's general messages (startup/shutdown) are unfiltered INFO
+    level: INFO
+    propagate: False
+  uvicorn.access:
+    handlers: [uvicorn_access]
+    level: INFO
+    propagate: False
+  uvicorn.error:
+    handlers: [uvicorn_error]
+    level: ERROR
+    propagate: False

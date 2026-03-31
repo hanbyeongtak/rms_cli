@@ -1,0 +1,9 @@
+# Unitree Go2 Configuration
+name: "Unitree Go2"
+type: "Quadruped"
+ip: "192.168.12.1"
+port: 8080
+transport: "UDP" # Go2의 특징
+capabilities: ["walk", "run", "jump", "dance"]
+max_speed: 1.5
+battery_low_threshold: 20.0

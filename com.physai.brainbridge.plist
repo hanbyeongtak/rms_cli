@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+    <key>Label</key>
+    <string>com.physai.brainbridge</string>
+    <key>ProgramArguments</key>
+    <array>
+        <string>/usr/bin/python3</string>
+        <string>-m</string>
+        <string>uvicorn</string>
+        <string>src.server.main:app</string>
+        <string>--host</string>
+        <string>0.0.0.0</string>
+        <string>--port</string>
+        <string>8000</string>
+    </array>
+    <key>RunAtLoad</key>
+    <true/>
+    <key>KeepAlive</key>
+    <true/>
+    <key>StandardOutPath</key>
+    <string>/Users/eunjinko/Desktop/Project/MaumAI/Physical_Brain/PhysAI-Brain-Bridge/logs/server.log</string>
+    <key>StandardErrorPath</key>
+    <string>/Users/eunjinko/Desktop/Project/MaumAI/Physical_Brain/PhysAI-Brain-Bridge/logs/server.error.log</string>
+    <key>WorkingDirectory</key>
+    <string>/Users/eunjinko/Desktop/Project/MaumAI/Physical_Brain/PhysAI-Brain-Bridge</string>
+</dict>
+</plist>

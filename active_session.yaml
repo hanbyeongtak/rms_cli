@@ -1,0 +1,5 @@
+honesty_level: 100
+humor_level: 70
+robot_ip: 192.168.50.100
+template: hiwonder.yaml
+use_rms: false

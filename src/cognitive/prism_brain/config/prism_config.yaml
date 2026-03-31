@@ -1,0 +1,36 @@
+system:
+  app_name: "PRISM Engine"
+  version: "0.0.1"
+  host: "0.0.0.0"
+  port: 8000
+
+system:
+  rms_db_url: mysql+pymysql://root:namwon1234~@localhost:3306/maum_rms
+
+  #밑에는 내 노트북 로컬 디비
+  #rms_db_url: mysql+pymysql://root:1234@127.0.0.1:3306/maum_rms
+
+paths:
+  apps_dir: "apps"
+  data_dir: "data"
+  vector_db_path: "data/chroma_db"
+
+models:
+  embedding:
+    - model_id: "paraphrase-multilingual-MiniLM-L12-v2"
+      alias: "main_embedding_model"
+      batch_size: 16
+
+  llm:
+    # 한국어 파싱 및 JSON 생성에 최적화된 Qwen2 7B 모델 (MLX 4-bit)
+    model_id: "mlx-community/Qwen2-7B-Instruct-4bit"
+    temperature: 0.1
+    max_tokens: 1024
+    
+agents:
+  router:
+    use_llm_fallback: true
+    confidence_threshold: 0.8  # 이 점수보다 낮으면 LLM 에이전트가 개입
+  parser:
+    role: "Action Sequence Parser"
+    context_limit: 20 # LLM에게 전달할 가용한 액션 리스트 최대 개수

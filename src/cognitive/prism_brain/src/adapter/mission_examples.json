@@ -1,0 +1,310 @@
+{
+    "mission_01_employee_recognition": {
+        "mission_id": "mission_01",
+        "mission_name": "등록 직원 인식",
+        "steps": [
+            {
+                "step_order": 1,
+                "start_actions": {
+                    "payload": [
+                        {
+                            "command_code": "go_to",
+                            "params": {"id": "pos_waiting_zone"},
+                            "tts_content": "대기 장소로 이동합니다."
+                        },
+                        {
+                            "command_code": "detect_person",
+                            "tts_content": "사람 객체 탐지 기능을 시작합니다."
+                        },
+                        {
+                            "command_code": "greet",
+                            "tts_content": "안녕하세요!"
+                        }
+                    ]
+                },
+                "mid_actions": {
+                    "payload": []
+                },
+                "end_actions": {
+                    "payload": [
+                        {
+                            "command_code": "go_to",
+                            "params": {"id": "pos_waiting_zone"}
+                        }
+                    ]
+                }
+            },
+            {
+                "step_order": 2,
+                "start_actions": {
+                    "payload": [
+                        {
+                            "command_code": "go_to",
+                            "params": {"id": "pos_waiting_zone"}
+                        },
+                        {
+                            "command_code": "detect_target",
+                            "tts_content": "저를 잠시 바라봐 주세요."
+                        },
+                        {
+                            "command_code": "greet",
+                            "tts_content": "안녕하세요!"
+                        }
+                    ]
+                },
+                "mid_actions": {
+                    "payload": []
+                },
+                "end_actions": {
+                    "payload": [
+                        {
+                            "command_code": "go_to",
+                            "params": {"id": "pos_waiting_zone"}
+                        }
+                    ]
+                }
+            }
+        ]
+    },
+    "mission_02_unknown_detection": {
+        "mission_id": "mission_02",
+        "mission_name": "미등록 인원 탐지",
+        "steps": [
+            {
+                "step_order": 1,
+                "start_actions": {
+                    "payload": [
+                        {
+                            "command_code": "go_to",
+                            "params": {"id": "pos_waiting_zone"}
+                        },
+                        {
+                            "command_code": "detect_person",
+                            "tts_content": "사람 객체 탐지 기능을 시작합니다."
+                        },
+                        {
+                            "command_code": "greet",
+                            "tts_content": "안녕하세요!"
+                        }
+                    ]
+                },
+                "mid_actions": {
+                    "payload": []
+                },
+                "end_actions": {
+                    "payload": [
+                        {
+                            "command_code": "go_to",
+                            "params": {"id": "pos_waiting_zone"}
+                        }
+                    ]
+                }
+            },
+            {
+                "step_order": 2,
+                "start_actions": {
+                    "payload": [
+                        {
+                            "command_code": "go_to",
+                            "params": {"id": "pos_waiting_zone"}
+                        },
+                        {
+                            "command_code": "detect_guest",
+                            "tts_content": "외부인을 탐지합니다."
+                        },
+                        {
+                            "command_code": "greet",
+                            "tts_content": "안녕하세요!"
+                        }
+                    ]
+                },
+                "mid_actions": {
+                    "payload": []
+                },
+                "end_actions": {
+                    "payload": [
+                        {
+                            "command_code": "go_to",
+                            "params": {"id": "pos_guide_zone"}
+                        },
+                        {
+                            "command_code": "lay_down",
+                            "tts_content": "엎드릴게요."
+                        }
+                    ]
+                }
+            }
+        ]
+    },
+    "mission_03_patrol": {
+        "mission_id": "mission_03",
+        "mission_name": "순찰",
+        "steps": [
+            {
+                "step_order": 1,
+                "start_actions": {
+                    "payload": [
+                        {
+                            "command_code": "go_to",
+                            "params": {"id": "pos_A"},
+                            "tts_content": "순찰을 시작합니다."
+                        }
+                    ]
+                },
+                "mid_actions": {
+                    "payload": [
+                        {
+                            "command_code": "detect_intrusion",
+                            "tts_content": "경고 경고 비인가 구역입니다."
+                        }
+                    ]
+                },
+                "end_actions": {
+                    "payload": [
+                        {
+                            "command_code": "go_to",
+                            "params": {"id": "pos_B"}
+                        }
+                    ]
+                }
+            },
+            {
+                "step_order": 2,
+                "start_actions": {
+                    "payload": [
+                        {
+                            "command_code": "go_to",
+                            "params": {"id": "pos_B"}
+                        }
+                    ]
+                },
+                "mid_actions": {
+                    "payload": [
+                        {
+                            "command_code": "detect_intrusion",
+                            "tts_content": "경고 경고 비인가 구역입니다."
+                        }
+                    ]
+                },
+                "end_actions": {
+                    "payload": [
+                        {
+                            "command_code": "go_to",
+                            "params": {"id": "pos_C"}
+                        }
+                    ]
+                }
+            },
+            {
+                "step_order": 3,
+                "start_actions": {
+                    "payload": [
+                        {
+                            "command_code": "go_to",
+                            "params": {"id": "pos_C"}
+                        }
+                    ]
+                },
+                "mid_actions": {
+                    "payload": [
+                        {
+                            "command_code": "detect_intrusion",
+                            "tts_content": "경고 경고 비인가 구역입니다."
+                        }
+                    ]
+                },
+                "end_actions": {
+                    "payload": [
+                        {
+                            "command_code": "go_to",
+                            "params": {"id": "pos_charging_station"}
+                        }
+                    ]
+                }
+            }
+        ]
+    },
+    "mission_04_docent": {
+        "mission_id": "mission_04",
+        "mission_name": "도슨트 미션",
+        "steps": [
+            {
+                "step_order": 1,
+                "start_actions": {
+                    "payload": [
+                        {
+                            "command_code": "go_to",
+                            "params": {"id": "pos_waiting_zone"},
+                            "tts_content": "안녕하세요. 지금 부터 전시관을 설명해줄게요. 저를 따라오세요."
+                        }
+                    ]
+                },
+                "mid_actions": {
+                    "payload": []
+                },
+                "end_actions": {
+                    "payload": [
+                        {
+                            "command_code": "go_to",
+                            "params": {"id": "pos_art_song_of_life"}
+                        },
+                        {
+                            "command_code": "pause",
+                            "params": {"n": 10},
+                            "tts_content": "이 그림의 제목은 생명의노래야. 이 그림엔 꽃, 나무,바람이 살고 있어. 그림의색들이 춤추는 것처럼보이지. 모든 생명은 자기만의 노래에 맞춰 춤을추고 있어. 이 그림은 자연이 부르는 노래야"
+                        }
+                    ]
+                }
+            },
+            {
+                "step_order": 2,
+                "start_actions": {
+                    "payload": [
+                        {
+                            "command_code": "go_to",
+                            "params": {"id": "pos_art_song_of_life"}
+                        }
+                    ]
+                },
+                "mid_actions": {
+                    "payload": []
+                },
+                "end_actions": {
+                    "payload": [
+                        {
+                            "command_code": "go_to",
+                            "params": {"id": "pos_art_fiorium"}
+                        },
+                        {
+                            "command_code": "pause",
+                            "params": {"n": 10},
+                            "tts_content": "옛날에 여기로 사람들이 놀려오려다 멈춰버린 큰 건물이 있었어. 오래오래 아무도 쓰지 않아서 조금 슬픈곳이지. 그런데 이곳이 빛과 예술의 옷을 입고 피오리움이라는 멋진 이름으로 다시 태어났어."
+                        }
+                    ]
+                }
+            },
+            {
+                "step_order": 3,
+                "start_actions": {
+                    "payload": [
+                        {
+                            "command_code": "go_to",
+                            "params": {"id": "pos_waiting_zone"}
+                        }
+                    ]
+                },
+                "mid_actions": {
+                    "payload": []
+                },
+                "end_actions": {
+                    "payload": [
+                        {
+                            "command_code": "sit",
+                            "tts_content": "앉을게요."
+                        }
+                    ]
+                }
+            }
+        ]
+    }
+}

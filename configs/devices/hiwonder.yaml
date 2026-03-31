@@ -1,0 +1,9 @@
+# Hiwonder Robot Dog Configuration
+name: "Hiwonder Dog"
+type: "Hexapod/Quadruped"
+ip: "192.168.1.101"
+port: 5000
+transport: "TCP" # Hiwonder의 특징
+capabilities: ["walk", "sit", "bark", "handshake"]
+max_speed: 0.5
+battery_low_threshold: 15.0
