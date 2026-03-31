@@ -105,14 +105,26 @@ def print_network_binding_animation(config):
 
 def print_success_gradient():
     text = "MAUM.AI RMS CLI Setting Completed"
-    colors = [21, 196, 226, 46, 231] # 파랑, 빨강, 노랑, 초록, 흰색
+    colors = [45, 196, 226, 46, 0 , 0, 0, 231] # 보라, 빨강, 노랑, 초록, 흰색
     print("\n    ", end="")
     for i, char in enumerate(text):
-        color_idx = int((i / len(text)) * (len(colors) - 1))
+        color_idx = i if len(colors) > i else -1
         color_code = f"\033[38;5;{colors[color_idx]}m"
         print(f"{Color.BOLD}{color_code}{char}{Color.END}", end="", flush=True)
         time.sleep(0.03)
     print("\n")
+    
+# def print_success_gradient():
+#     text = "MAUM.AI RMS CLI Setting Completed"
+#     colors = [21, 196, 226, 46, 231] # 파랑, 빨강, 노랑, 초록, 흰색
+#     print("\n    ", end="")
+#     for i, char in enumerate(text):
+#         color_idx = int((i / len(text)) * (len(colors) - 1))
+#         print(color_idx)
+#         color_code = f"\033[38;5;{colors[color_idx]}m"
+#         print(f"{Color.BOLD}{color_code}{char}{Color.END}", end="", flush=True)
+#         time.sleep(0.03)
+#     print("\n")
 
 def progress_bar(label, duration=1.0):
     print(f"    {Color.BOLD}[{label}]{Color.END} ", end="", flush=True)
