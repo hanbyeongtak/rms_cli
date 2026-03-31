@@ -159,7 +159,7 @@ def setup_cli():
                 config['auth_key'] = "MAUM-PRO-7782"
                 current_step += 1
             else:
-                print(f"\n    {Color.ERROR}[FAILED] 인증 실패. 관리자에게 문의하세요.{Color.END}")
+                print(f"\n    {Color.RED}[FAILED] 인증 실패. 관리자에게 문의하세요.{Color.END}")
                 time.sleep(2.0)
             continue
 
@@ -234,9 +234,9 @@ def setup_cli():
             test_conn = input(f"\n    {msg('Perform connection test? (y/n) [y]', '연결 테스트를 진행할까요? [y]')} > ").lower()
             if test_conn != 'n':
                 print(f"\n    {Color.YELLOW}Searching network (네트워크 탐색 중)...{Color.END}", end="", flush=True)
-                for _ in range(30): time.sleep(0.1); print(".", end="", flush=True)
+                for _ in range(30): time.sleep(0.1); print(f"{Color.YELLOW}.{Color.END}", end="", flush=True)
                 print(f"\n    {Color.YELLOW}Attempting connection (연결 시도 중)...{Color.END}", end="", flush=True)
-                for _ in range(60): time.sleep(0.12); print(".", end="", flush=True)
+                for _ in range(60): time.sleep(0.12); print(f"{Color.YELLOW}.{Color.END}", end="", flush=True)
                 print(f"\n    {Color.SUCCESS}[OK] Connected (연결 성공){Color.END}")
                 time.sleep(1.2)
 
